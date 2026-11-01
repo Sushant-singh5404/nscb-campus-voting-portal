@@ -1,5 +1,7 @@
 export type PostCategory = 'executive' | 'activity' | 'representative';
 
+export type NavigationTab = 'booth' | 'vault' | 'candidates' | 'departments' | 'commission' | 'auth';
+
 export interface ElectionPost {
   id: string;
   title: string;

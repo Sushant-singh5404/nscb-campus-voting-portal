@@ -29,7 +29,6 @@ import {
   ArrowRight,
   Eye,
   EyeOff,
-  Cloud,
   Loader2,
 } from 'lucide-react';
 
@@ -327,15 +326,6 @@ export const AuthPage: React.FC<AuthPageProps> = ({
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 animate-in fade-in duration-200">
-      {/* Top Firebase Cloud Synchronized Badge */}
-      <div className="flex items-center justify-center gap-2 mb-4">
-        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono font-semibold bg-emerald-500/10 text-emerald-300 border border-emerald-500/30 shadow-sm">
-          <Cloud className="w-3.5 h-3.5 text-emerald-400" />
-          <span>Firebase Cloud Database Connected</span>
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-        </span>
-      </div>
-
       {/* Page Header */}
       <div className="text-center mb-8">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/15 text-amber-300 border border-amber-500/30 text-xs font-semibold uppercase tracking-wider mb-3">

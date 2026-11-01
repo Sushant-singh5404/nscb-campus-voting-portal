@@ -1,11 +1,11 @@
 import React from 'react';
-import { VoterProfile } from '../types';
+import { VoterProfile, NavigationTab } from '../types';
 import { COLLEGE_NAME, ELECTION_YEAR } from '../data/electionData';
 import { Shield, Vote, Lock, Users, Building2, FileCheck2, UserCheck, Sparkles, Landmark, LogIn, LogOut, UserPlus } from 'lucide-react';
 
 interface HeaderProps {
-  activeTab: 'booth' | 'vault' | 'candidates' | 'departments' | 'commission' | 'auth';
-  setActiveTab: (tab: 'booth' | 'vault' | 'candidates' | 'departments' | 'commission' | 'auth') => void;
+  activeTab: NavigationTab;
+  setActiveTab: (tab: NavigationTab) => void;
   currentVoter: VoterProfile | null;
   onOpenVoterModal: () => void;
   onSignOut: () => void;
@@ -134,6 +134,7 @@ export const Header: React.FC<HeaderProps> = ({
             <FileCheck2 className="w-4 h-4" />
             <span>Rules & Tally</span>
           </button>
+
 
           <button
             id="nav-tab-auth"

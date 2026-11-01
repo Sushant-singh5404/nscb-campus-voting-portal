@@ -4,7 +4,7 @@
  */
 
 import { useState, useEffect } from 'react';
-import { Candidate, ElectionPost, VoterProfile, VaultBallot } from './types';
+import { Candidate, ElectionPost, VoterProfile, VaultBallot, NavigationTab } from './types';
 import {
   COLLEGE_NAME,
   COLLEGE_MOTTO,
@@ -28,6 +28,7 @@ import {
   saveUserProfileToFirestore,
   recordBallotToFirestore,
   markUserVotedInFirestore,
+  signOutUser,
   handleFirestoreError,
   OperationType,
 } from './firebase';
@@ -49,7 +50,7 @@ const STORAGE_KEY_VOTER = 'nscb_active_voter_2026';
 const STORAGE_KEY_REGISTERED_VOTERS = 'nscb_registered_voters_2026';
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState<'booth' | 'vault' | 'candidates' | 'departments' | 'commission' | 'auth'>('booth');
+  const [activeTab, setActiveTab] = useState<NavigationTab>('booth');
 
   // Load ballots from localStorage or fallback to initial seeded ballots
   const [ballots, setBallots] = useState<VaultBallot[]>(() => {
@@ -340,7 +341,12 @@ export default function App() {
     }
   };
 
-  const handleSignOut = () => {
+  const handleSignOut = async () => {
+    try {
+      await signOutUser();
+    } catch (err) {
+      console.warn('Sign out error:', err);
+    }
     setCurrentVoter(null);
   };
 

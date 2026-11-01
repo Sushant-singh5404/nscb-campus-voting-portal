@@ -120,6 +120,8 @@ export async function logoutUser() {
   return await firebaseSignOut(auth);
 }
 
+export const signOutUser = logoutUser;
+
 // User Profile Management in Firestore
 export async function saveUserProfileToFirestore(voter: VoterProfile): Promise<void> {
   if (!voter.uid) return;
